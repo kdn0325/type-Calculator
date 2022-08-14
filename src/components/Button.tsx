@@ -1,7 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
+export enum ButtonType {
+ Number,
+ Operation,   
+}
+
 type Props ={
+    type?:ButtonType;
     label:string;
     position?: [x:number , y: number];
     width?: number;
@@ -9,13 +15,14 @@ type Props ={
 }
 
 const StyledButton = styled.button`
-    background:#e48900;
+    background:#727171;
     border-radius:8px;
     border:none;
     font-size:24px;
+    color:#fff;
 `
 
-const Button: React.FC<Props> = ({label,position,width,height})=>{
+const Button: React.FC<Props> = ({type= ButtonType.Operation ,label,position,width,height})=>{
     const styles: React.CSSProperties = {};
 
     if (position){
@@ -28,6 +35,10 @@ const Button: React.FC<Props> = ({label,position,width,height})=>{
     }
     if (height){
         styles.gridRowEnd = `span ${height}`;
+    }
+    if (type === ButtonType.Number){
+        styles.color = '#000'
+        styles.background = '#e48900'
     }
     return(
         <StyledButton style={styles}>{label}</StyledButton>

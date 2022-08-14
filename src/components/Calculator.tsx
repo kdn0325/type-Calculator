@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from './Button';
+import Button , {ButtonType} from './Button';
 
 const Container = styled.div `
     /* flex:1; */
@@ -8,32 +8,39 @@ const Container = styled.div `
 
 const Grid = styled.div `
   display:grid;
-  grid-gap:10px;
+  grid-gap:10px;†
   grid-template-columns:repeat(4,80px);
-  grid-template-rows:repeat(5,80px);
+  grid-template-rows: 120px repeat(5,80px);
 `
  
-
+const Display = styled.div `
+  background: #fff;
+  border-radius:8px;
+  font-size:48px;
+  grid-column-end: span 4;
+  padding:20px 24px;
+`
 
 const Calculator: React.FC<{}> = () => {
   return (
     <Container>
       <Grid>
-        <Button label='AC' position={[0,0]} width={2}/>
-        <Button label='OOPS' position={[2,0]} width={2}/>
-        <Button label='-' position={[3,1]}/>
-        <Button label='+' position={[3,2]}/>
-        <Button label='=' position={[3,3]} height={2}/>
-        <Button label='9' position={[2,1]}/>
-        <Button label='8' position={[1,1]}/>
-        <Button label='7' position={[0,1]}/>
-        <Button label='6' position={[2,2]}/>
-        <Button label='5' position={[1,2]}/>
-        <Button label='4' position={[0,2]}/>
-        <Button label='3' position={[2,3]}/>
-        <Button label='2' position={[1,3]}/>
-        <Button label='1' position={[0,3]}/>
-        <Button label='0' position={[0,4]} width={3}/>
+        <Display>42</Display>
+        <Button label='AC' position={[0,1]} width={2}/>
+        <Button label='OOPS' position={[2,1]} width={2}/>
+        <Button label='-' position={[3,2]}/>
+        <Button label='+' position={[3,3]}/>
+        <Button label='=' position={[3,4]} height={2}/>
+        <Button type ={ButtonType.Number} label='9' position={[2,2]}/>
+        <Button type ={ButtonType.Number} label='8' position={[1,2]}/>
+        <Button type ={ButtonType.Number} label='7' position={[0,2]}/>
+        <Button type ={ButtonType.Number} label='6' position={[2,3]}/>
+        <Button type ={ButtonType.Number} label='5' position={[1,3]}/>
+        <Button type ={ButtonType.Number} label='4' position={[0,3]}/>
+        <Button type ={ButtonType.Number} label='3' position={[2,4]}/>
+        <Button type ={ButtonType.Number} label='2' position={[1,4]}/>
+        <Button type ={ButtonType.Number} label='1' position={[0,4]}/>
+        <Button type ={ButtonType.Number} label='0' position={[0,5]} width={3}/>
       </Grid>
     </Container>
   )
