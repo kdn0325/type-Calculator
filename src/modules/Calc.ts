@@ -1,9 +1,3 @@
-/**
- * Calculator Brain;
- * Input: ---> [UserInput , UserInput , ...]
- * Generate ---> {state}
- */
-
 export enum InputType {
     Numberical,
     Operation,
